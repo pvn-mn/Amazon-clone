@@ -1,3 +1,9 @@
+import {cart} from '../data/cart.js' 
+
+// 1. imports should come at top of the file
+// 2. the modules need live server to work
+
+
 let productsHTML = ''; //declaring let outside && using accumulator inside forEach loop gets all objects inside same string
 
 products.forEach((product) => {
