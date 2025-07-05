@@ -4,20 +4,20 @@ class Cart { // PascalCase is used to name things that generate objects so lette
     
     // cartItems = undefined;
     cartItems;
-    localStorageKey;
+    #localStorageKey; // # is used to prefix private properties (or methods)
 
 
     constructor (localStorageKey) {  // when an object is generated from the class, a constructor is like a function method that runs automatically - 
                                      // - it runs the set up code (previously ran outside the class) 
-        this.localStorageKey = localStorageKey;
-        this.loadFromStorage();
+        this.#localStorageKey = localStorageKey;
+        this.#loadFromStorage();
 
         // Few rules: constructor can only be named constructor
         //          : constructor cannot return anything
     }
 
-    loadFromStorage() {
-        this.cartItems =  JSON.parse(localStorage.getItem(this.localStorageKey));
+    #loadFromStorage() {
+        this.cartItems =  JSON.parse(localStorage.getItem(this.#localStorageKey));
 
     if (!this.cartItems ) {
         this.cartItems  = [{
@@ -35,7 +35,7 @@ class Cart { // PascalCase is used to name things that generate objects so lette
     } 
 
      saveToStorage() {
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+        localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
     }
 
      addToCart(productId) {
