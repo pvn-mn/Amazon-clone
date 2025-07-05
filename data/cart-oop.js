@@ -1,5 +1,5 @@
 
-function Cart(localStorageKey) {
+function Cart(localStorageKey) { 
     const cart = {
    cartItems: undefined,
 
@@ -97,6 +97,7 @@ cart.addToCart('83d4ca15-0f35-48f5-b7a3-1ea210004f2e');
 console.log(cart);
 console.log(businessCart);
 
+// The function is used to demonstrate creating objects as a introduction to CLASS.
 
 
 
