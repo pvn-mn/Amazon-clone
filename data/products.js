@@ -63,6 +63,8 @@ class Product {
     }
   }
 
+
+
   /* 
 //example of instantiating an object from Product class:
 
@@ -84,6 +86,27 @@ const product1 = new Product({
 
 console.log(product1);
 */
+
+
+/*
+// using '.call' next to calling a function to identify 'this':
+function logThis() {
+  console.log(this);
+}
+logThis(); //outputs - undefined
+logThis.call('hello'); //outputs -hello
+
+//using arrow function to call this in a method:
+const object3 = {
+  method: () => {
+    console.log(this);
+  }
+};
+
+object3.method();
+*/
+
+
 
 export const products = [
   {
