@@ -107,7 +107,7 @@ object3.method();
 */
 
 
-
+/*
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -774,7 +774,7 @@ export const products = [
   }
   return new Product(productDetails);
 });
-
+*/
 
 // console.log(products);
 
@@ -802,4 +802,33 @@ export const products = [
   console.log(tshirt);
   console.log(tshirt.getPrice());
   */
+ 
 
+
+  //use requests to get json data instead of having all data in code:
+
+  export let products = [];
+
+  // callback function - function (product.js - 'renderProductsGrid()') resembled in another functions parameter(loadProducts(fun)) called to execute at end in future ~ 
+  export function loadProducts(fun) { 
+    const xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('load', () => {
+      // console.log(xhr.response);
+      products = JSON.parse(xhr.response).map((productDetails) => {
+
+      if(productDetails.type === 'clothing'){
+        return  new Clothing(productDetails);
+      }
+      return new Product(productDetails);
+    });
+
+    console.log('load products');
+
+    fun();
+   });
+
+    xhr.open('GET', 'https://supersimplebackend.dev/products');
+    xhr.send();
+  }
+  // loadProducts();
